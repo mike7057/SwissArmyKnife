@@ -1,9 +1,10 @@
-
+import java.time.Duration;
+import java.time.Instant;
 
 public class sak {
     
     public static void main(String[] args) {
-
+        Instant start = Instant.now();
         System.out.println("");
         System.out.println("");
 
@@ -21,7 +22,20 @@ public class sak {
             System.out.println("Help to the rescue!!!");
             //Calls printHelp in Help.java
             Help.printHelp(); 
+
+
+        } else if  (args[0].equalsIgnoreCase("-SleepFastImplementsRunnable")) {
+            System.out.println("Sleeping faster implementing Runnable...");
+            SleepFastImplementsRunnable.sleepRunnable();
         
+        } else if  (args[0].equalsIgnoreCase("-SleepFast")) {
+            System.out.println("Sleeping faster...");
+            SleepFast.sleepFast();
+
+        } else if  (args[0].equalsIgnoreCase("-Sleep")) {
+            System.out.println("Sleeping...");
+            Sleep.sleep();
+
         
         } else if (args[0].equalsIgnoreCase("-HttpRequest")) { //Checks if args is equal to -HttpRequest
             System.out.println("Executing HttpRequest...");
@@ -39,9 +53,16 @@ public class sak {
                     System.out.println("index printed");
                 }
             }
-        }
+        } 
 
-         System.out.println("");
+        System.out.println("");
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start,end);
+        System.out.print("Overall elapsed time in milliseconds: ");
+        System.out.println(timeElapsed.toMillis());
+        
+
+         
         
     } 
 } 
